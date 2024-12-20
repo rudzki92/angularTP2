@@ -1,0 +1,20 @@
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div>
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" />
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        Introduzca un email válido.
+      </div>
+    </div>
+  
+    <div>
+      <label for="password">Contraseña</label>
+      <input id="password" formControlName="password" type="password" />
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        La contraseña es obligatoria.
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="loginForm.invalid">Iniciar sesión</button>
+  </form>
+  
